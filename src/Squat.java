@@ -33,6 +33,13 @@ public class Squat {
 		totalStrechTime = (1 / FRAMES_IN_SECOND) * this.squat.indexOf(last);
 	}
 
+	public ArrayList<Squat> getSquatInfo()
+	{
+		
+		//TODO Ilan: make this a 30-Squat long array list of instances
+		//Starting from begining of strech->end of strech
+		return null;
+	}
 	/*
 	 * we look for the first instance of frame in which the angel of the back is
 	 * less than INITIAL__FRAME_BACK_ANGLE. we remove all the previous frames we

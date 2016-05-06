@@ -31,8 +31,10 @@ public class TrainingDataService {
 	}
 
 	private double[] getSquatValues(Squat i_squatToParse) {
-		// TODO Auto-generated method stub
-		return null;
+		double[] values = new double[NUM_OF_ATTRIBUTES];
+		values[0] = i_squatToParse.getTotalBendTime() + i_squatToParse.getTotalStrechTime();
+		
+		return values;
 	}
 
 	private FastVector getAttributesVector() {

@@ -70,7 +70,8 @@ public class SquatTest {
         frames.add(sf29);
         frames.add(sf30);
         ArrayList<Squat> squat = new ArrayList<Squat>();
-       squat.add(0,new Squat(frames));
+       Squat s = new Squat(frames);
+        squat.add(0,s);
        
        for(int i = 1 ; i < 30; i++)
        {

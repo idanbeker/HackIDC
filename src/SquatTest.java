@@ -150,9 +150,9 @@ public class SquatTest {
         frames.add(sf30);
         Squat squat = new Squat(frames);
 
-        System.out.println(squat.first);
-        System.out.println(squat.last);
-        System.out.println(squat.middle);
+        System.out.println(squat.getM_firstSquatFrame());
+        System.out.println(squat.getM_middleSquatFrame());
+        System.out.println(squat.getM_lastSquatFrame());
     }
 }
 

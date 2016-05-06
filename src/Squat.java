@@ -14,8 +14,7 @@ public class Squat {
 	private SquatFrame m_lastSquatFrame;
 	private SquatFrame m_middleSquatFrame;
 
-	private double m_totalBendTime;
-	private double m_totalStrechTime;
+
 
 	// private double[] stamps;
 	// public structForSort[] struct;
@@ -23,6 +22,30 @@ public class Squat {
 	// public static boolean sortBy = true;
 	// true -sort by delta
 	// false- sort by index
+
+	public SquatFrame getM_firstSquatFrame() {
+		return m_firstSquatFrame;
+	}
+
+	public void setM_firstSquatFrame(SquatFrame m_firstSquatFrame) {
+		this.m_firstSquatFrame = m_firstSquatFrame;
+	}
+
+	public SquatFrame getM_lastSquatFrame() {
+		return m_lastSquatFrame;
+	}
+
+	public void setM_lastSquatFrame(SquatFrame m_lastSquatFrame) {
+		this.m_lastSquatFrame = m_lastSquatFrame;
+	}
+
+	public SquatFrame getM_middleSquatFrame() {
+		return m_middleSquatFrame;
+	}
+
+	public void setM_middleSquatFrame(SquatFrame m_middleSquatFrame) {
+		this.m_middleSquatFrame = m_middleSquatFrame;
+	}
 
 	public Squat(ArrayList<SquatFrame> i_squatFramesList) {
 		this.m_initialSquat = i_squatFramesList;

@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
+        System.out.println("Hey");
         InputParser ip = new InputParser("input/input.txt");
 
         ArrayList<SquatFrame> squatFrames = new ArrayList<SquatFrame>();
@@ -13,9 +14,15 @@ public class Main {
         }
 
         Squat s = new Squat(squatFrames);
-        
+
+
+        System.out.println(s.getFirstSquatIndex());
         System.out.print(s.getM_firstSquatFrame());
+
+        System.out.println(s.getMiddleSquatIndex());
         System.out.print(s.getM_middleSquatFrame());
+
+        System.out.println(s.getLastSquatIndex());
         System.out.print(s.getM_lastSquatFrame());
     }
 }

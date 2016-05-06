@@ -19,7 +19,11 @@ public class SquatFrame {
 				m_shoulder.getX() - m_ass.getX());
 		double kneeToAssAngle = Math.atan2(m_knee.getY() - m_ass.getY(),
 				m_knee.getX() - m_ass.getX());
-		return Math.toDegrees(shoulderToAssAngle - kneeToAssAngle) * -1;
+        double angle = Math.toDegrees(shoulderToAssAngle - kneeToAssAngle);
+        if (angle < 0){
+            angle += 360;
+        }
+		return angle;
 
 	}
 
@@ -28,7 +32,11 @@ public class SquatFrame {
 				m_ass.getX() - m_knee.getX());
 		double feetToKneeAngle = Math.atan2(m_feet.getY() - m_knee.getY(),
 				m_feet.getX() - m_knee.getX());
-		return Math.toDegrees(assToKneeAngle - feetToKneeAngle) * -1;
+        double angle = Math.toDegrees(assToKneeAngle - feetToKneeAngle);
+        if (angle < 0){
+            angle += 360;
+        }
+		return angle;
 	}
 
 

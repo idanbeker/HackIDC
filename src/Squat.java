@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Squat {
 	public static final double INITIAL__FRAME_BACK_ANGLE = 170;
@@ -11,10 +10,11 @@ public class Squat {
 	private ArrayList<SquatFrame> m_initialSquat;
 	private ArrayList<SquatFrame> m_squatGestures;
 	private SquatFrame m_firstSquatFrame;
+    private int m_firstSquatIndex;
 	private SquatFrame m_lastSquatFrame;
+    private int m_lastSquatIndex;
 	private SquatFrame m_middleSquatFrame;
-
-
+    private int m_middleSquatIndex;
 
 	// private double[] stamps;
 	// public structForSort[] struct;
@@ -51,18 +51,29 @@ public class Squat {
 		this.m_middleSquatFrame = m_middleSquatFrame;
 	}
 
+    public int getFirstSquatIndex() { return m_firstSquatIndex; }
+    public int getMiddleSquatIndex() { return m_middleSquatIndex; }
+    public int getLastSquatIndex() { return m_lastSquatIndex; }
+
 	public Squat(ArrayList<SquatFrame> i_squatFramesList) {
 		this.m_initialSquat = i_squatFramesList;
 		m_squatGestures = new ArrayList<SquatFrame>();
 		findFirstFrame(); // NOTICE: start working with squat after deleting
-							// fisrt elments!!
+							// first elments!!
 
 		deleteToFirst();
 		findLastFrame();// NOTICE: these funcs should run after findFirstFrame()
 						// deletes all the initial irrelevant frames
 		findMiddleFrame();
+        this.m_firstSquatIndex = m_initialSquat.indexOf(m_firstSquatFrame);
+        this.m_middleSquatIndex = m_initialSquat.indexOf(m_middleSquatFrame);
+        this.m_lastSquatIndex = m_initialSquat.indexOf(m_lastSquatFrame);
 		// totalBendTime = (1 / FRAMES_IN_SECOND) * this.squat.indexOf(middle);
 		// totalStrechTime = (1 / FRAMES_IN_SECOND) * this.squat.indexOf(last);
+
+        for (SquatFrame frame : m_initialSquat){
+            System.out.println(frame.getBackAngle() + " " + frame.getKneeBendAngle());
+        }
 	}
 
 	private boolean isGoodSquat;
@@ -95,6 +106,7 @@ public class Squat {
 	public void findLastFrame() {
 		m_lastSquatFrame = m_initialSquat.get(m_initialSquat.size() - 1);
 		for (SquatFrame frame : m_initialSquat) {
+            System.out.println(frame.getBackAngle() + " " + (frame.getBackAngle() > LAST__FRAME_BACK_ANGLE));
 			if (frame.getBackAngle() > LAST__FRAME_BACK_ANGLE) {
 				this.m_lastSquatFrame = frame;
 				break;

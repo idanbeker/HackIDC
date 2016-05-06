@@ -87,8 +87,9 @@ public class Squat {
 	public double distance(Point a, Point b) {
 		return Math.hypot(a.getX() - b.getX(), a.getY() - b.getY());
 	}
+
 	private boolean isGoodSquat;
-	
+
 	public boolean isGoodSquat() {
 		return isGoodSquat;
 	}
@@ -97,26 +98,56 @@ public class Squat {
 		this.isGoodSquat = isGoodSquat;
 	}
 
-	
-
-	
-
-
 	public ArrayList<SquatFrame> getSquatInfo() { // idan
-		int indexOfShorten = 0;
-		sortStructByDeltas(struct);
-		// now take only the FRAMES_IN_SQUAT biggest deltas
-		for (int i = struct.length - 1; i > (struct.length - 1)
-				- FRAMES_IN_SQUAT; i--) {
-			shortenStruct[indexOfShorten] = struct[i];
-			indexOfShorten++;
-		}
 
-		sortStructByIndex(shortenStruct);
-		for (int i = 0; i < shortenStruct.length; i++) {
-			shortenSquat.add(shortenStruct[i].frame);
+		sortStructByDeltas(struct);// sorted from big to small
+		// now the struct is sorted by deltas- find the 'middle' elements index:
+		int indexOfMiddle = 0;
+		for (int i = 0; i < struct.length; i++) {
+			if (struct[i].frame.equals(middle)) {
+				indexOfMiddle = i;
+			}
 		}
+		if (indexOfMiddle <= FRAMES_IN_SQUAT / 2) {
+			// means that we shouldnt delete elements before middle
+			//in this case it shouldnt work correctly cause the index of the middele wont be in the middel
+			System.out.println("getSquatInfo: there are less elements before middle");
+			for (int i = 0; i < FRAMES_IN_SQUAT; i++) {
+				shortenStruct[i] = struct[i];
+			}
+		} else {
+			// means that we should copy only from
+			// (indexOfMiddle-FRAMES_IN_SQUAT/2)
+			for (int i = 0; i < FRAMES_IN_SQUAT / 2; i++) {
+				if (shortenStruct[i] != null
+						&& struct[i + (indexOfMiddle - FRAMES_IN_SQUAT / 2)] != null)
+					shortenStruct[i] = struct[i
+							+ (indexOfMiddle - FRAMES_IN_SQUAT / 2)];
+				else {
+					System.out
+							.println("getSquatInfo: there are less elements before middle");
+				}
 
+			}
+
+		}
+		sortStructByIndex(shortenStruct); //now sort by index
+		
+		//copy elements by order to the retrurned list
+		for (int i = 0; i <shortenStruct.length; i++) {
+			shortenSquat.add(shortenStruct[i].frame); 
+			}
+
+		/*
+		 * // now take only the FRAMES_IN_SQUAT biggest deltas int
+		 * indexOfShorten = 0; for (int i = struct.length - 1; i >
+		 * (struct.length - 1) - FRAMES_IN_SQUAT; i--) {
+		 * shortenStruct[indexOfShorten] = struct[i]; indexOfShorten++; }
+		 * 
+		 * sortStructByIndex(shortenStruct); for (int i = 0; i <
+		 * shortenStruct.length; i++) {
+		 * shortenSquat.add(shortenStruct[i].frame); }
+		 */
 		return shortenSquat;
 	}
 
@@ -146,12 +177,9 @@ public class Squat {
 		}
 	}
 
-
-	
-	
-	public void deleteToFirst(){
-		int indexOfFirst=squat.indexOf(first);
-		for (int i=0;i<indexOfFirst;i++){
+	public void deleteToFirst() {
+		int indexOfFirst = squat.indexOf(first);
+		for (int i = 0; i < indexOfFirst; i++) {
 
 			squat.remove(0);
 		}

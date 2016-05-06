@@ -16,20 +16,20 @@ public class structForSort implements Comparator<structForSort> {
 	}
 
 	@Override
-	public int compare(structForSort a, structForSort b) {
+	public int compare(structForSort a, structForSort b) {//sorts from big to small
 		if (Squat.sortBy)
 		// sort by delta
 		{
 			if (a.delta > b.delta) {
-				return 1;
-			} else if (a.delta < b.delta) {
 				return -1;
+			} else if (a.delta < b.delta) {
+				return 1;
 			}
 		} else {// sort by index
 			if (a.index > b.index) {
-				return 1;
-			} else if (a.index > b.index) {
 				return -1;
+			} else if (a.index > b.index) {
+				return 1;
 			}
 		}
 

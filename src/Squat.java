@@ -1,7 +1,5 @@
-import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 
 public class Squat {
 
@@ -80,7 +78,7 @@ public class Squat {
 	public double deltaOfFrames(SquatFrame a, SquatFrame b) {
 		return (1 * distance(a.m_ass, b.m_ass))
 				+ (1 * distance(a.m_feet, b.m_feet))
-				+ (1 * distance(a.m_head, b.m_head))
+				+ (1)
 				+ (1 * distance(a.m_knee, b.m_knee))
 				+ (1 * distance(a.m_shoulder, b.m_shoulder));
 

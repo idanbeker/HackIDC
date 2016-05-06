@@ -2,13 +2,11 @@ import java.awt.Point;
 
 public class Main {
     public static void main(String[] args) {
-
-
         Point[] goodBodyParam = new Point[5];
         goodBodyParam[0] = new Point(504, 652);//Head
-        goodBodyParam[1] = new Point(517, 826);//Shoulder
-        goodBodyParam[2] = new Point(126, 1061);//Ass
-        goodBodyParam[3] = new Point(593, 1001);//Knee
+        goodBodyParam[1] = new Point(553, 1060);//Shoulder
+        goodBodyParam[2] = new Point(554, 1061);//Ass
+        goodBodyParam[3] = new Point(555, 1061);//Knee
         goodBodyParam[4] = new Point(349, 1393);//Feet
         SquatFrame goodBodyFrame = new SquatFrame(goodBodyParam[0], goodBodyParam[1], goodBodyParam[2],
                 goodBodyParam[3], goodBodyParam[4]);

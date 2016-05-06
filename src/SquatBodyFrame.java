@@ -33,10 +33,10 @@ public class SquatBodyFrame {
 	public String toString() {
 		return "======================\n" + "Head Value= " + m_head + "\nShoulder Value= " + m_shoulder
 				+ "\nAss Value= " + m_ass + "\nFeet Value= " + m_feet + "\nBack Angle= " + this.getBackAngle()
-				+ "\nKneeBend Angle = " + this.getKneeBendAngle() + "======================\n";
+				+ "\nKneeBend Angle = " + this.getKneeBendAngle() + "\n======================\n";
 	}
 
-	public static void main() {
+	public static void main(String [] args) {
 
 		/*
 		 * a good position: shoulder : 517,826 ass: 126 ,1061 foot: 593, 1001 a

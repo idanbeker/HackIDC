@@ -9,19 +9,22 @@ import weka.core.Instances;
 public class SquatPredictor {
 	private static final int NUM_OF_ATTRIBUTES = 34;
 	ArrayList<Squat> m_squatList;
+	Instances m_trainingData;
 	KStar m_classifier;
 	
 	public SquatPredictor(ArrayList<Squat> i_trainingDataList) throws Exception {
 		this.m_squatList = i_trainingDataList;
 		TrainingDataService trainingDataService = new TrainingDataService(i_trainingDataList);
-		Instances trainingData = trainingDataService.getTrainingData();
-		System.out.println(trainingData);
+		m_trainingData = trainingDataService.getTrainingData();
+		System.out.println(m_trainingData);
 		m_classifier = new KStar();
-		m_classifier.buildClassifier(trainingData);
+		m_classifier.buildClassifier(m_trainingData);
 	}
 	
 	public boolean predict(Squat i_squat) throws Exception{
 		Instance instance = squatToInstance(i_squat);
+		m_trainingData.add(instance);
+		instance.setDataset(m_trainingData);
 		System.out.println("Test" + instance);
 		return m_classifier.classifyInstance(instance) == 1;
 	}

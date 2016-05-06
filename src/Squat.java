@@ -57,7 +57,7 @@ public class Squat {
 		findFirstFrame(); // NOTICE: start working with squat after deleting
 							// fisrt elments!!
 
-		deleteToFirst();
+		//deleteToFirst();
 		findLastFrame();// NOTICE: these funcs should run after findFirstFrame()
 						// deletes all the initial irrelevant frames
 		findMiddleFrame();
@@ -133,9 +133,10 @@ public class Squat {
 	}
 
 	public ArrayList<SquatFrame> getSquatInfo() {
-		for (int i = 0; i < FRAMES_IN_SQUAT; i++) {
+		for (int i = 0; i < Math.min(FRAMES_IN_SQUAT,m_initialSquat.size()); i++) {
 			m_squatGestures.add(m_initialSquat.get(i));
 		}
+		System.out.println(m_squatGestures);
 		return m_squatGestures;
 	}
 }

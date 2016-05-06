@@ -68,8 +68,10 @@ public class SquatBodyFrame {
 		
 		
 		Point zeroZero=new Point(0,0);
-		Point oneZero=new Point(0,1);
-		Point threeZero=new Point(0,2);
+		Point oneZero=new Point(1,0);
+		Point threeZero=new Point(2,0);
+		Point fourZero=new Point(4,0);
+		Point fiveZero=new Point (5,0);
 		Squat [] squatsArray= new Squat [30];
 		for (int i=0;i<10;i++){//the getBackAngle stays above 170
 			

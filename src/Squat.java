@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.Collections;
 
 public class Squat {
-
 	public static final double INITIAL__FRAME_BACK_ANGLE = 170;
 	public static final double LAST__FRAME_BACK_ANGLE = 170;
 	// public static final int FRAMES_IN_SECOND = 24;
@@ -28,24 +27,14 @@ public class Squat {
 	// true -sort by delta
 	// false- sort by index
 
-	public double getTotalBendTime() {
-		return squat.indexOf(middle) - squat.indexOf(first);
-	}
-
-	public double getTotalStrechTime() {
-		return squat.indexOf(last) - squat.indexOf(middle);
-	}
-
-	// TODO: make sure the size is bigger than FRAMES_IN_SQUAT
+	
 	public Squat(ArrayList<SquatFrame> squat) {
 		this.squat = squat;
+		shortenSquat=new ArrayList<SquatFrame>();
 		findFirstFrame(); // NOTICE: start working with squat after deleting
 							// fisrt elments!!
-		stamps = new double[squat.size()];
-		shortenStruct = new structForSort[FRAMES_IN_SQUAT];
-		struct = new structForSort[squat.size() - 1]; // since we compare 2
-														// elements, we have
-														// (n-1) deltas
+		
+		
 		deleteToFirst();
 		findLastFrame();// NOTICE: these funcs should run after findFirstFrame()
 						// deletes all the initial irrelevant frames
@@ -53,123 +42,8 @@ public class Squat {
 		// totalBendTime = (1 / FRAMES_IN_SECOND) * this.squat.indexOf(middle);
 		// totalStrechTime = (1 / FRAMES_IN_SECOND) * this.squat.indexOf(last);
 	}
-
-	public void initialStructArray() {// check null
-		for (int i = 0; i < struct.length ; i++) {
-			struct[i] = new structForSort(i + 1, deltaOfFrames(squat.get(i),
-					squat.get(i + 1)), squat.get(i + 1));
-		}
-	}
-
-	public void sortStructByDeltas(structForSort[] str) {
-		sortBy = true;
-		Arrays.sort(str);
-	}
-
-	public void sortStructByIndex(structForSort[] str) {
-		sortBy = false;
-		Arrays.sort(str);
-	}
-
-	public void fillStamps() {
-		for (int i = 0; i < squat.size(); i++) {
-			stamps[i] = deltaOfFrames(squat.get(i), squat.get(i + 1));
-		}
-	}
-
-	public double deltaOfFrames(SquatFrame a, SquatFrame b) {
-		return (1 * distance(a.m_ass, b.m_ass))
-				+ (1 * distance(a.m_feet, b.m_feet))
-				+ (1 * distance(a.m_head, b.m_head))
-				+ (1 * distance(a.m_knee, b.m_knee))
-				+ (1 * distance(a.m_shoulder, b.m_shoulder));
-
-	}
-
-	public double distance(Point a, Point b) {
-		return Math.hypot(a.getX() - b.getX(), a.getY() - b.getY());
-	}
-
-	private boolean isGoodSquat;
-
-	public boolean isGoodSquat() {
-		return isGoodSquat;
-	}
-
-	public void setGoodSquat(boolean isGoodSquat) {
-		this.isGoodSquat = isGoodSquat;
-	}
-
-	public ArrayList<SquatFrame> getSquatInfo() { // idan
-
-		sortStructByDeltas(struct);// sorted from big to small
-		// now the struct is sorted by deltas- find the 'middle' elements index:
-		int indexOfMiddle = 0;
-		for (int i = 0; i < struct.length; i++) {
-			if (struct[i].frame.equals(middle)) {
-				indexOfMiddle = i;
-			}
-		}
-		if (indexOfMiddle <= FRAMES_IN_SQUAT / 2) {
-			// means that we shouldnt delete elements before middle
-			//in this case it shouldnt work correctly cause the index of the middele wont be in the middel
-			System.out.println("getSquatInfo: there are less elements before middle");
-			for (int i = 0; i < FRAMES_IN_SQUAT; i++) {
-				shortenStruct[i] = struct[i];
-			}
-		} else {
-			// means that we should copy only from
-			// (indexOfMiddle-FRAMES_IN_SQUAT/2)
-			for (int i = 0; i < FRAMES_IN_SQUAT / 2; i++) {
-				if (shortenStruct[i] != null
-						&& struct[i + (indexOfMiddle - FRAMES_IN_SQUAT / 2)] != null)
-					shortenStruct[i] = struct[i
-							+ (indexOfMiddle - FRAMES_IN_SQUAT / 2)];
-				else {
-					System.out
-							.println("getSquatInfo: there are less elements before middle");
-				}
-
-			}
-
-		}
-		sortStructByIndex(shortenStruct); //now sort by index
-		
-		//copy elements by order to the retrurned list
-		for (int i = 0; i <shortenStruct.length; i++) {
-			shortenSquat.add(shortenStruct[i].frame); 
-			}
-
-		/*
-		 * // now take only the FRAMES_IN_SQUAT biggest deltas int
-		 * indexOfShorten = 0; for (int i = struct.length - 1; i >
-		 * (struct.length - 1) - FRAMES_IN_SQUAT; i--) {
-		 * shortenStruct[indexOfShorten] = struct[i]; indexOfShorten++; }
-		 * 
-		 * sortStructByIndex(shortenStruct); for (int i = 0; i <
-		 * shortenStruct.length; i++) {
-		 * shortenSquat.add(shortenStruct[i].frame); }
-		 */
-		return shortenSquat;
-	}
-
-	public void filterFirstHalf() {
-
-	}
-
-
 	
-	public void filterSecondHalf() {
-
-
-	}
-
-	/*
-	 * we look for the first instance of frame in which the angel of the back is
-	 * less than INITIAL__FRAME_BACK_ANGLE. we remove all the previous frames we
-	 * then look for the first instance of the frame in which the angel is
-	 * higher than INITIAL__FRAME_BACK_ANGLE - means that the player stood up!
-	 */
+	
 	public void findFirstFrame() {
 		for (SquatFrame frame : squat) {
 			if (frame.getBackAngle() < INITIAL__FRAME_BACK_ANGLE) {
@@ -208,5 +82,21 @@ public class Squat {
 				break;
 			}
 		}
+	}
+	
+	
+	public double getTotalBendTime() {
+		return squat.indexOf(middle) - squat.indexOf(first);
+	}
+
+	public double getTotalStrechTime() {
+		return squat.indexOf(last) - squat.indexOf(middle);
+	}
+	
+	public ArrayList<SquatFrame> getSquatInfo(){
+		for (int i=0; i< FRAMES_IN_SQUAT;i++){
+			shortenSquat.add(squat.get(i));
+		}
+		return shortenSquat;
 	}
 }

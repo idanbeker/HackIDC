@@ -1,8 +1,6 @@
 import org.junit.Test;
 
-import java.awt.*;
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class SquatTest {
     
@@ -10,36 +8,36 @@ public class SquatTest {
 	public void testPredictor() throws Exception 
 	{
 		// Point m_head, Point m_shoulder, Point m_ass, Point m_knee, Point m_feet
-        SquatFrame sf1 = new SquatFrame(new Point(0, 0), new Point(553, 1060), new Point(554, 1061), new Point(555, 1062), new Point(0, 0));
-        SquatFrame sf2 = new SquatFrame(new Point(0, 0), new Point(553, 1060), new Point(554, 1061), new Point(555, 1062), new Point(0, 0));
-        SquatFrame sf3 = new SquatFrame(new Point(0, 0), new Point(553, 1060), new Point(554, 1061), new Point(555, 1061), new Point(0, 0));
-        SquatFrame sf4 = new SquatFrame(new Point(0, 0), new Point(553, 1060), new Point(554, 1061), new Point(555, 1061), new Point(0, 0));
-        SquatFrame sf5 = new SquatFrame(new Point(0, 0), new Point(553, 1060), new Point(554, 1061), new Point(555, 1061), new Point(0, 0));
-        SquatFrame sf6 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf7 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf8 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf9 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf10 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf11 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf12 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf13 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf14 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf15 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf16 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf17 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf18 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf19 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf20 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf21 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf22 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf23 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf24 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf25 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf26 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf27 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf28 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf29 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf30 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
+        SquatFrame sf1 = new SquatFrame(new Point(553, 1060), new Point(554, 1061), new Point(555, 1062), new Point(0, 0));
+        SquatFrame sf2 = new SquatFrame(new Point(553, 1060), new Point(554, 1061), new Point(555, 1062), new Point(0, 0));
+        SquatFrame sf3 = new SquatFrame(new Point(553, 1060), new Point(554, 1061), new Point(555, 1061), new Point(0, 0));
+        SquatFrame sf4 = new SquatFrame(new Point(553, 1060), new Point(554, 1061), new Point(555, 1061), new Point(0, 0));
+        SquatFrame sf5 = new SquatFrame(new Point(553, 1060), new Point(554, 1061), new Point(555, 1061), new Point(0, 0));
+        SquatFrame sf6 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
+        SquatFrame sf7 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
+        SquatFrame sf8 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
+        SquatFrame sf9 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
+        SquatFrame sf10 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
+        SquatFrame sf11 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
+        SquatFrame sf12 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
+        SquatFrame sf13 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
+        SquatFrame sf14 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
+        SquatFrame sf15 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
+        SquatFrame sf16 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
+        SquatFrame sf17 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
+        SquatFrame sf18 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
+        SquatFrame sf19 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
+        SquatFrame sf20 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
+        SquatFrame sf21 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
+        SquatFrame sf22 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
+        SquatFrame sf23 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
+        SquatFrame sf24 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
+        SquatFrame sf25 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
+        SquatFrame sf26 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
+        SquatFrame sf27 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
+        SquatFrame sf28 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
+        SquatFrame sf29 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
+        SquatFrame sf30 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
         ArrayList<SquatFrame> frames = new ArrayList<SquatFrame>();
         frames.add(sf1);
         frames.add(sf2);
@@ -89,36 +87,36 @@ public class SquatTest {
 	@Test
     public void testFindFirstFrame() throws Exception {
         // Point m_head, Point m_shoulder, Point m_ass, Point m_knee, Point m_feet
-        SquatFrame sf1 = new SquatFrame(new Point(0, 0), new Point(553, 1060), new Point(554, 1061), new Point(555, 1062), new Point(0, 0));
-        SquatFrame sf2 = new SquatFrame(new Point(0, 0), new Point(553, 1060), new Point(554, 1061), new Point(555, 1062), new Point(0, 0));
-        SquatFrame sf3 = new SquatFrame(new Point(0, 0), new Point(554, 1060), new Point(554, 1061), new Point(555, 1061), new Point(0, 0));
-        SquatFrame sf4 = new SquatFrame(new Point(0, 0), new Point(560, 1060), new Point(554, 1061), new Point(555, 1061), new Point(0, 0));
-        SquatFrame sf5 = new SquatFrame(new Point(0, 0), new Point(560, 1060), new Point(554, 1061), new Point(555, 1061), new Point(0, 0));
-        SquatFrame sf6 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf7 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf8 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf9 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf10 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf11 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf12 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf13 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf14 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(300, 300), new Point(200, 200), new Point(300, 200));
-        SquatFrame sf15 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(300, 300), new Point(200, 200), new Point(300, 100));
-        SquatFrame sf16 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(300, 300), new Point(200, 200), new Point(300, 200));
-        SquatFrame sf17 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf18 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf19 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf20 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf21 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf22 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf23 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf24 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf25 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf26 = new SquatFrame(new Point(0, 0), new Point(560, 1060), new Point(554, 1061), new Point(555, 1061), new Point(0, 0));
-        SquatFrame sf27 = new SquatFrame(new Point(0, 0), new Point(560, 1060), new Point(554, 1061), new Point(555, 1061), new Point(0, 0));
-        SquatFrame sf28 = new SquatFrame(new Point(0, 0), new Point(554, 1060), new Point(554, 1061), new Point(555, 1061), new Point(0, 0));
-        SquatFrame sf29 = new SquatFrame(new Point(0, 0), new Point(553, 1060), new Point(554, 1061), new Point(555, 1062), new Point(0, 0));
-        SquatFrame sf30 = new SquatFrame(new Point(0, 0), new Point(553, 1060), new Point(554, 1061), new Point(555, 1062), new Point(0, 0));
+        SquatFrame sf1 = new SquatFrame(new Point(553, 1060), new Point(554f, 1061f), new Point(555, 1062), new Point(0, 0));
+        SquatFrame sf2 = new SquatFrame(new Point(553, 1060), new Point(554f, 1061f), new Point(555, 1062), new Point(0, 0));
+        SquatFrame sf3 = new SquatFrame(new Point(554, 1060), new Point(554f, 1061f), new Point(555, 1061), new Point(0, 0));
+        SquatFrame sf4 = new SquatFrame(new Point(560, 1060), new Point(554f, 1061f), new Point(555, 1061), new Point(0, 0));
+        SquatFrame sf5 = new SquatFrame(new Point(560, 1060), new Point(554f, 1061f), new Point(555, 1061), new Point(0, 0));
+        SquatFrame sf6 = new SquatFrame(new Point(0f, 0f), new Point(0f, 0f), new Point(0f, 0f), new Point(0f, 0f));
+        SquatFrame sf7 = new SquatFrame(new Point(0f, 0f), new Point(0f, 0f), new Point(0f, 0f), new Point(0f, 0f));
+        SquatFrame sf8 = new SquatFrame(new Point(0f, 0f), new Point(0f, 0f), new Point(0f, 0f), new Point(0f, 0f));
+        SquatFrame sf9 = new SquatFrame(new Point(0f, 0f), new Point(0f, 0f), new Point(0f, 0f), new Point(0f, 0f));
+        SquatFrame sf10 = new SquatFrame(new Point(0f, 0f), new Point(0f, 0f), new Point(0f, 0f), new Point(0f, 0f));
+        SquatFrame sf11 = new SquatFrame(new Point(0f, 0f), new Point(0f, 0f), new Point(0f, 0f), new Point(0f, 0f));
+        SquatFrame sf12 = new SquatFrame(new Point(0f, 0f), new Point(0f, 0f), new Point(0f, 0f), new Point(0f, 0f));
+        SquatFrame sf13 = new SquatFrame(new Point(0f, 0f), new Point(0f, 0f), new Point(0f, 0f), new Point(0f, 0f));
+        SquatFrame sf14 = new SquatFrame(new Point(0f, 0f), new Point(300f, 300f), new Point(200f, 200), new Point(300, 200));
+        SquatFrame sf15 = new SquatFrame(new Point(0f, 0f), new Point(300f, 300f), new Point(200f, 200), new Point(300, 100));
+        SquatFrame sf16 = new SquatFrame(new Point(0f, 0f), new Point(300f, 300f), new Point(200f, 200), new Point(300, 200));
+        SquatFrame sf17 = new SquatFrame(new Point(0f, 0f), new Point(0f, 0f), new Point(0f, 0f), new Point(0f, 0f));
+        SquatFrame sf18 = new SquatFrame(new Point(0f, 0f), new Point(0f, 0f), new Point(0f, 0f), new Point(0f, 0f));
+        SquatFrame sf19 = new SquatFrame(new Point(0f, 0f), new Point(0f, 0f), new Point(0f, 0f), new Point(0f, 0f));
+        SquatFrame sf20 = new SquatFrame(new Point(0f, 0f), new Point(0f, 0f), new Point(0f, 0f), new Point(0f, 0f));
+        SquatFrame sf21 = new SquatFrame(new Point(0f, 0f), new Point(0f, 0f), new Point(0f, 0f), new Point(0f, 0f));
+        SquatFrame sf22 = new SquatFrame(new Point(0f, 0f), new Point(0f, 0f), new Point(0f, 0f), new Point(0f, 0f));
+        SquatFrame sf23 = new SquatFrame(new Point(0f, 0f), new Point(0f, 0f), new Point(0f, 0f), new Point(0f, 0f));
+        SquatFrame sf24 = new SquatFrame(new Point(0f, 0f), new Point(0f, 0f), new Point(0f, 0f), new Point(0f, 0f));
+        SquatFrame sf25 = new SquatFrame(new Point(0f, 0f), new Point(0f, 0f), new Point(0f, 0f), new Point(0f, 0f));
+        SquatFrame sf26 = new SquatFrame(new Point(560f, 1060f), new Point(554f, 1061f), new Point(555f, 1061f), new Point(0f, 0f));
+        SquatFrame sf27 = new SquatFrame(new Point(560f, 1060f), new Point(554f, 1061f), new Point(555f, 1061f), new Point(0f, 0f));
+        SquatFrame sf28 = new SquatFrame(new Point(554f, 1060f), new Point(554f, 1061f), new Point(555f, 1061f), new Point(0f, 0f));
+        SquatFrame sf29 = new SquatFrame(new Point(553f, 1060f), new Point(554f, 1061f), new Point(555f, 1062f), new Point(0f, 0f));
+        SquatFrame sf30 = new SquatFrame(new Point(553f, 1060f), new Point(554f, 1061f), new Point(555f, 1062f), new Point(0f, 0f));
         ArrayList<SquatFrame> frames = new ArrayList<SquatFrame>();
         frames.add(sf1);
         frames.add(sf2);
@@ -152,9 +150,9 @@ public class SquatTest {
         frames.add(sf30);
         Squat squat = new Squat(frames);
 
-        System.out.println(squat.first);
-        System.out.println(squat.last);
-        System.out.println(squat.middle);
+        System.out.println(squat.getM_firstSquatFrame());
+        System.out.println(squat.getM_middleSquatFrame());
+        System.out.println(squat.getM_lastSquatFrame());
     }
 }
 

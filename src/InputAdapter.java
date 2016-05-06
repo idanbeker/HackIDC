@@ -1,7 +1,4 @@
-import java.awt.*;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 
 public class InputAdapter {
     public Point shoulder;
@@ -10,23 +7,25 @@ public class InputAdapter {
     public Point feet;
 
     public InputAdapter(ArrayList<Point> points) {
+        /*
         Collections.sort(points, new Comparator<Point>() {
             public int compare(Point o1, Point o2) {
-                return Integer.compare(o1.y, o2.y);
+                return Integer.compare(o1.getY(), o2.getY());
             }
         });
+        */
 
-        // if we have all 4 points, find them
         shoulder = points.get(0);
-
-        if (points.get(1).x > points.get(2).x) {
+        ass = points.get(1);
+        knee = points.get(2);
+        /*if (points.get(1).getX() > points.get(2).getX()) {
             ass = points.get(1);
             knee = points.get(2);
         } else {
             ass = points.get(2);
             knee = points.get(1);
         }
-
+        */
         feet = points.get(3);
     }
 }

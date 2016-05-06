@@ -12,34 +12,27 @@ public class Squat {
 	private float totalBendTime;
 	private float totalStrechTime;
 	private boolean isGoodSquat;
-
-	
 	
 	public boolean isGoodSquat() {
 		return isGoodSquat;
 	}
 
-
 	public void setGoodSquat(boolean isGoodSquat) {
 		this.isGoodSquat = isGoodSquat;
 	}
-
 
 	public float getTotalBendTime() {
 		return totalBendTime;
 	}
 
-
 	public float getTotalStrechTime() {
 		return totalStrechTime;
 	}
 
-
-
 	public Squat(ArrayList<SquatFrame> squat) {
 		this.squat = squat;
 		findFirstFrame();
-		deleteToFisrt();
+		deleteToFirst();
 		findLastFrame();// NOTICE: these funcs should run after findFirstFrame()
 						// deletes all the initial irrelevant frames
 		findMiddleFrame();
@@ -70,7 +63,7 @@ public class Squat {
 		}
 	}
 	
-	public void deleteToFisrt(){
+	public void deleteToFirst(){
 		int indexOfFirst=squat.indexOf(first);
 		for (int i=0;i<indexOfFirst;i++){
 			squat.remove(0);
@@ -79,12 +72,11 @@ public class Squat {
 
 	public void findLastFrame() {
 		for (SquatFrame frame : squat) {
-			if (frame.getBackAngle() > INITIAL__FRAME_BACK_ANGLE) {
+			if (frame.getBackAngle() > LAST__FRAME_BACK_ANGLE) {
 				this.last = frame;
 				break;
 			}
 		}
-
 	}
 
 	public void findMiddleFrame() {
@@ -97,9 +89,7 @@ public class Squat {
 					squat.indexOf(frame) + 1).getKneeBendAngle()) {
 				middle = frame;
 				break;
-
 			}
 		}
 	}
-
 }

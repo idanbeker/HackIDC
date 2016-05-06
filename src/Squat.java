@@ -31,8 +31,12 @@ public class Squat {
 		this.m_firstSquatFrame = m_firstSquatFrame;
 	}
 
+
+	// TODO: make sure the size is bigger than FRAMES_IN_SQUAT
+	
 	public SquatFrame getM_lastSquatFrame() {
 		return m_lastSquatFrame;
+
 	}
 
 	public void setM_lastSquatFrame(SquatFrame m_lastSquatFrame) {

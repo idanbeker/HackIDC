@@ -10,6 +10,9 @@ public class Squat {
 
 	public Squat(ArrayList<SquatFrame> squat) {
 		this.squat = squat;
+		findFirstFrame();
+		findLastFrame();
+		findMiddleFrame();
 		
 	}
 
@@ -47,6 +50,7 @@ public class Squat {
 			if (squat.get(squat.indexOf(frame) + 1) != null
 					&& (frame.getKneeBendAngle() > squat.get(
 							squat.indexOf(frame) + 1).getKneeBendAngle())) {
+				middle=frame;
 
 			}
 		}

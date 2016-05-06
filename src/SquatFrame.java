@@ -1,8 +1,5 @@
 import java.awt.*;
 
-/**
- * Created by ariebarsky on 06/05/2016.
- */
 public class SquatFrame {
     Point m_head;
     Point m_shoulder;

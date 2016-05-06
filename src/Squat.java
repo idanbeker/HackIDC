@@ -14,6 +14,7 @@ public class Squat {
 	public Squat(ArrayList<SquatFrame> squat) {
 		this.squat = squat;
 		findFirstFrame();
+		deleteToFisrt();
 		findLastFrame();// NOTICE: these funcs should run after findFirstFrame()
 						// deletes all the initial irrelevant frames
 		findMiddleFrame();
@@ -32,9 +33,14 @@ public class Squat {
 			if (frame.getBackAngle() < INITIAL__FRAME_BACK_ANGLE) {
 				this.first = frame;
 				break;
-			} else {
-				squat.remove(frame);
 			}
+		}
+	}
+	
+	public void deleteToFisrt(){
+		int indexOfFirst=squat.indexOf(first);
+		for (int i=0;i<indexOfFirst;i++){
+			squat.remove(0);
 		}
 	}
 
@@ -54,12 +60,13 @@ public class Squat {
 		for (SquatFrame frame : squat) {
 			if (squat.get(squat.indexOf(frame) + 1) == null)
 				break;
-			else if	(frame.getKneeBendAngle() > squat.get(
-							squat.indexOf(frame) + 1).getKneeBendAngle()) {
-				middle=frame;
+			else if (frame.getKneeBendAngle() > squat.get(
+					squat.indexOf(frame) + 1).getKneeBendAngle()) {
+				middle = frame;
 				break;
 
 			}
 		}
 	}
+
 }

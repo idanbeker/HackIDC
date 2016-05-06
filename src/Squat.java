@@ -3,13 +3,14 @@ import java.util.ArrayList;
 public class Squat {
 	private static final double INITIAL__FRAME_BACK_ANGLE = 170;
 	private static final double LAST__FRAME_BACK_ANGLE = 170;
-	private ArrayList<SquatBodyFrame> squat = new ArrayList<SquatBodyFrame>();
-	private SquatBodyFrame first = null;
-	private SquatBodyFrame last = null;
-	private SquatBodyFrame middle = null;
+	private ArrayList<SquatFrame> squat = new ArrayList<SquatFrame>();
+	private SquatFrame first = null;
+	private SquatFrame last = null;
+	private SquatFrame middle = null;
 
-	public Squat(ArrayList<SquatBodyFrame> squat) {
+	public Squat(ArrayList<SquatFrame> squat) {
 		this.squat = squat;
+		
 	}
 
 	/*
@@ -19,7 +20,7 @@ public class Squat {
 	 * higher than INITIAL__FRAME_BACK_ANGLE - means that the player stood up!
 	 */
 	public void findFirstFrame() {
-		for (SquatBodyFrame frame : squat) {
+		for (SquatFrame frame : squat) {
 			if (frame.getBackAngle() < INITIAL__FRAME_BACK_ANGLE) {
 				this.first = frame;
 				break;
@@ -30,7 +31,7 @@ public class Squat {
 	}
 
 	public void findLastFrame() {
-		for (SquatBodyFrame frame : squat) {
+		for (SquatFrame frame : squat) {
 			if (frame.getBackAngle() > INITIAL__FRAME_BACK_ANGLE) {
 				this.last = frame;
 				break;
@@ -42,7 +43,7 @@ public class Squat {
 	public void findMiddleFrame() {
 		// assume the angle is decreasing until the middle frame.
 		// find the first frame from which the angle doesnt decrease
-		for (SquatBodyFrame frame : squat) {
+		for (SquatFrame frame : squat) {
 			if (squat.get(squat.indexOf(frame) + 1) != null
 					&& (frame.getKneeBendAngle() > squat.get(
 							squat.indexOf(frame) + 1).getKneeBendAngle())) {

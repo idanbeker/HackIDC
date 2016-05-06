@@ -21,7 +21,20 @@ public class TrainingDataService {
 		FastVector squatAttributes = getAttributesVector();
 		Instances trainingData = new Instances("SquatDataSet",squatAttributes ,100 );
 		System.out.println(trainingData);
+		
+		for(Squat s : m_squatList)
+		{
+			double[] values = getSquatValues(s);
+			trainingData.add(new Instance(1, values));
+		}
 		return null;
+	}
+
+	private double[] getSquatValues(Squat i_squatToParse) {
+		double[] values = new double[NUM_OF_ATTRIBUTES];
+		values[0] = i_squatToParse.getTotalBendTime() + i_squatToParse.getTotalStrechTime();
+		
+		return values;
 	}
 
 	private FastVector getAttributesVector() {

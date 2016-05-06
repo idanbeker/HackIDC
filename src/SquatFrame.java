@@ -19,14 +19,14 @@ public class SquatFrame {
     public double getBackAngle() {
         double shoulderToAssAngle = Math.atan2(m_shoulder.getY() - m_ass.getY(), m_shoulder.getX() - m_ass.getX());
         double kneeToAssAngle = Math.atan2(m_knee.getY() - m_ass.getY(), m_knee.getX() - m_ass.getX());
-        return Math.toDegrees(shoulderToAssAngle - kneeToAssAngle);
+        return Math.toDegrees(shoulderToAssAngle - kneeToAssAngle) * -1;
 
     }
 
     public double getKneeBendAngle() {
         double assToKneeAngle = Math.atan2(m_ass.getY() - m_knee.getY(), m_ass.getX() - m_knee.getX());
         double feetToKneeAngle = Math.atan2(m_feet.getY() - m_knee.getY(), m_feet.getX() - m_knee.getX());
-        return Math.toDegrees(assToKneeAngle - feetToKneeAngle);
+        return Math.toDegrees(assToKneeAngle - feetToKneeAngle) * -1;
     }
 
     public String toString() {

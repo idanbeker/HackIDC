@@ -104,6 +104,7 @@ public class Squat {
 		int middleIndex = ((m_initialSquat.indexOf(m_lastSquatFrame) - m_initialSquat
 				.indexOf(m_firstSquatFrame)) / 2)
 				+ m_initialSquat.indexOf(m_firstSquatFrame);
+		m_middleSquatFrame = m_initialSquat.get(middleIndex);
 		for (SquatFrame frame : m_initialSquat) {
 			if (m_initialSquat.indexOf(frame) == m_initialSquat.size() - 1)
 			{

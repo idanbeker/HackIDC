@@ -35,12 +35,11 @@ public class SquatFrame {
 		return Math.toDegrees(assToKneeAngle - feetToKneeAngle) * -1;
 	}
 
-	public String toString() {
-		return "======================\n" + "Head Value= " + m_head
-				+ "\nShoulder Value= " + m_shoulder + "\nAss Value= " + m_ass
-				+ "\nFeet Value= " + m_feet + "\nBack Angle= "
-				+ this.getBackAngle() + "\nKneeBend Angle = "
-				+ this.getKneeBendAngle() + "\n======================\n";
-	}
+
+    public String toString() {
+        return "======================\n" + "Head Value= " + m_head + "\nShoulder Value= " + m_shoulder
+                + "\nAss Value= " + m_ass + "\nKnee Value= " + m_knee + "\nFeet Value= " + m_feet + "\nBack Angle= " + this.getBackAngle()
+                + "\nKneeBend Angle = " + this.getKneeBendAngle() + "\n======================\n";
+    }
 
 }

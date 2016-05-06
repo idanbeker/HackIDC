@@ -1,12 +1,13 @@
 import java.util.Comparator;
 
-public class structForSort implements Comparator<structForSort>{
+public class structForSort implements Comparator<structForSort> {
 	public int index;
 	public double delta;
 	public SquatFrame frame;
-	//public boolean sortBy=true;
-	//true -sort by delta
-	//false- sort by index
+
+	// public boolean sortBy=true;
+	// true -sort by delta
+	// false- sort by index
 
 	public structForSort(int index, double delta, SquatFrame frame) {
 		this.index = index;
@@ -14,26 +15,25 @@ public class structForSort implements Comparator<structForSort>{
 		this.frame = frame;
 	}
 
-	
 	@Override
 	public int compare(structForSort a, structForSort b) {
-		if (Squat.sortBy){
-		//sort by delta 
-			if (a.delta>b.delta){
+		if (Squat.sortBy)
+		// sort by delta
+		{
+			if (a.delta > b.delta) {
 				return 1;
-			} else if (a.delta<b.delta){
+			} else if (a.delta < b.delta) {
 				return -1;
 			}
-		else{//sort by index
-			if (a.index>b.index){
+		} else {// sort by index
+			if (a.index > b.index) {
 				return 1;
-			}else if (a.index>b.index){
+			} else if (a.index > b.index) {
 				return -1;
 			}
 		}
+
 		return 0;
 	}
-
-
 
 }

@@ -64,6 +64,23 @@ public class SquatBodyFrame {
 		SquatBodyFrame testAngleFrame = new SquatBodyFrame(testAngleParam[0], testAngleParam[1], testAngleParam[2],
 				testAngleParam[3], testAngleParam[4]);
 		System.out.println(testAngleFrame);
+		
+		
+		
+		Point zeroZero=new Point(0,0);
+		Point oneZero=new Point(0,1);
+		Point threeZero=new Point(0,2);
+		Squat [] squatsArray= new Squat [30];
+		for (int i=0;i<10;i++){//the getBackAngle stays above 170
+			
+		}
+		for (int i=10;i<21;i++){//the getBackAngle is under 170
+			
+		
+		}
+		for (int i=21;i<squatsArray.length;i++){
+			
+		}
 
 	}
 

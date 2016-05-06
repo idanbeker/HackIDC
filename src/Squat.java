@@ -157,7 +157,10 @@ public class Squat {
 
 	}
 
+
+	
 	public void filterSecondHalf() {
+
 
 	}
 

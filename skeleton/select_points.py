@@ -11,12 +11,16 @@ SELECTION = []
 CURRENT_FRAME = None
 stoped = False
 
+OUT=""
+
 def handle_click(event, x, y, flags, param):
     global SELECTION
     global cap
     global stoped
+    global OUT
     if (event == cv2.EVENT_LBUTTONDOWN):
         SELECTION.append((x,y))
+        OUT += "%d,%d," % (x,y)
         if len(SELECTION) == NUM_POINTS:
            # finished
            print SELECTION
@@ -49,6 +53,7 @@ def main():
     global CURRENT_FRAME
     global cap
     global stoped
+    global OUT
     cap = cv2.VideoCapture(args.input)
     cv2.namedWindow('image')
     cv2.setMouseCallback('image', handle_click)  
@@ -70,6 +75,9 @@ def main():
             if CURRENT_FRAME is not None : show_image_with_label("select %s" % (STAGES[len(SELECTION)],))
     cv2.destroyAllWindows()
     cap.release()
+
+    with open(args.output, "w") as f:
+        f.write(OUT)
 
 if __name__ == "__main__":
     main()

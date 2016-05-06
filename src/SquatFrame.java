@@ -31,7 +31,7 @@ public class SquatFrame {
 
     public String toString() {
         return "======================\n" + "Head Value= " + m_head + "\nShoulder Value= " + m_shoulder
-                + "\nAss Value= " + m_ass + "\nFeet Value= " + m_feet + "\nBack Angle= " + this.getBackAngle()
+                + "\nAss Value= " + m_ass + "\nKnee Value= " + m_knee + "\nFeet Value= " + m_feet + "\nBack Angle= " + this.getBackAngle()
                 + "\nKneeBend Angle = " + this.getKneeBendAngle() + "\n======================\n";
     }
 }

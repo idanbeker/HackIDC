@@ -77,7 +77,7 @@ public class Squat {
 		// assume the angle is decreasing until the middle frame.
 		// find the first frame from which the angle doesnt decrease
 		for (SquatFrame frame : squat) {
-			if (squat.get(squat.indexOf(frame) + 1) == null)
+			if (squat.indexOf(frame) == squat.size() - 1)
 				break;
 			else if (frame.getKneeBendAngle() > squat.get(
 					squat.indexOf(frame) + 1).getKneeBendAngle()) {

@@ -2,9 +2,14 @@ import org.junit.Test;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class SquatTest {
 
+	
+	
+	
+	
     @Test
     public void testFindFirstFrame() throws Exception {
         // Point m_head, Point m_shoulder, Point m_ass, Point m_knee, Point m_feet

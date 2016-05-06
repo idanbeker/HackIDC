@@ -29,8 +29,12 @@ def joints_generator(skeleton_lst):
     
 def add_joints(img, joints_lst):
     points = list(chunks(joints_lst, 2))
+    prev_p = None
     for p in points:
         cv2.circle(img, tuple(p), 10, (0,255,0))
+        if prev_p is not None:
+            cv2.line(img, tuple(prev_p), tuple(p), (0,0,255))
+        prev_p = p
 
 def visualize(inf, skeletonf):
     sk = load_skeletion(skeletonf)
@@ -48,7 +52,7 @@ def visualize(inf, skeletonf):
 
         # show img
         cv2.imshow('image', img)
-        k = cv2.waitKey(10) & 0xff
+        k = cv2.waitKey(30) & 0xff
         if k == 27 or k ==  ord('q'):
             break
     cv2.destroyAllWindows()

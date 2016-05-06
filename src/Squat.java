@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Squat1 {
+public class Squat {
 	public static final double INITIAL__FRAME_BACK_ANGLE = 170;
 	public static final double LAST__FRAME_BACK_ANGLE = 170;
 	// public static final int FRAMES_IN_SECOND = 24;
@@ -33,22 +33,7 @@ public class Squat1 {
 
 
 	// TODO: make sure the size is bigger than FRAMES_IN_SQUAT
-	public Squat(ArrayList<SquatFrame> squat) {
-		this.m_initialSquat = squat;
-		m_squatGestures = new ArrayList<SquatFrame>();
-		findFirstFrame(); // NOTICE: start working with squat after deleting
-							// fisrt elments!()!
-		//stamps = new double[squat.size()];
-		//shortenStruct = new structForSort[FRAMES_IN_SQUAT];
-		//struct = new structForSort[squat.size() - 1]; // since we compare 2
-														// elements, we have												// (n-1) deltas
-		deleteToFirst();
-		findLastFrame();// NOTICE: these funcs should run after findFirstFrame()
-						// deletes all the initial irrelevant frames
-		findMiddleFrame();
-		// totalBendTime = (1 / FRAMES_IN_SECOND) * this.squat.indexOf(middle);
-		// totalStrechTime = (1 / FRAMES_IN_SECOND) * this.squat.indexOf(last);
-	}
+	
 	public SquatFrame getM_lastSquatFrame() {
 		return m_lastSquatFrame;
 

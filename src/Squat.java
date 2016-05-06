@@ -39,13 +39,13 @@ public class Squat {
 	// TODO: make sure the size is bigger than FRAMES_IN_SQUAT
 	public Squat(ArrayList<SquatFrame> squat) {
 		this.squat = squat;
+		shortenSquat=new ArrayList<SquatFrame>();
 		findFirstFrame(); // NOTICE: start working with squat after deleting
-							// fisrt elments!!
+							// fisrt elments!()!
 		stamps = new double[squat.size()];
 		shortenStruct = new structForSort[FRAMES_IN_SQUAT];
 		struct = new structForSort[squat.size() - 1]; // since we compare 2
-														// elements, we have
-														// (n-1) deltas
+														// elements, we have												// (n-1) deltas
 		deleteToFirst();
 		findLastFrame();// NOTICE: these funcs should run after findFirstFrame()
 						// deletes all the initial irrelevant frames

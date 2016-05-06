@@ -3,14 +3,12 @@ import java.util.ArrayList;
 
 import weka.core.Instance;
 
-//import weka.core.Instance;
 
-
-public class TrainingDataService {
+public class TrainingDataService  {
 	ArrayList<Squat> m_squatList;
 
 	public TrainingDataService() {
-
+		
 	}
 
 }

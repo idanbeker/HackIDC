@@ -20,9 +20,9 @@ public class SquatTest {
         SquatFrame sf11 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
         SquatFrame sf12 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
         SquatFrame sf13 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
-        SquatFrame sf14 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(300, 300), new Point(200, 201), new Point(300, 300));
-        SquatFrame sf15 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(300, 300), new Point(200, 202), new Point(300, 300));
-        SquatFrame sf16 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(300, 300), new Point(200, 203), new Point(300, 200));
+        SquatFrame sf14 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(300, 300), new Point(200, 200), new Point(300, 200));
+        SquatFrame sf15 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(300, 300), new Point(200, 200), new Point(300, 100));
+        SquatFrame sf16 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(300, 300), new Point(200, 200), new Point(300, 200));
         SquatFrame sf17 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
         SquatFrame sf18 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
         SquatFrame sf19 = new SquatFrame(new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0));
@@ -75,3 +75,4 @@ public class SquatTest {
         System.out.println(squat.middle);
     }
 }
+

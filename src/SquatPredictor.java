@@ -13,6 +13,7 @@ public class SquatPredictor {
 		this.m_squatList = i_trainingDataList;
 		TrainingDataService trainingDataService = new TrainingDataService(i_trainingDataList);
 		Instances trainingData = trainingDataService.getTrainingData();
+		System.out.println(trainingData);
 		m_classifier = new CitationKNN();
 		m_classifier.buildClassifier(trainingData);
 	}

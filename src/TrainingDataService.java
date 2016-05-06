@@ -21,6 +21,17 @@ public class TrainingDataService {
 		FastVector squatAttributes = getAttributesVector();
 		Instances trainingData = new Instances("SquatDataSet",squatAttributes ,100 );
 		System.out.println(trainingData);
+		
+		for(Squat s : m_squatList)
+		{
+			double[] values = getSquatValues(s);
+			trainingData.add(new Instance(1, values));
+		}
+		return null;
+	}
+
+	private double[] getSquatValues(Squat i_squatToParse) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

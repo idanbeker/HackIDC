@@ -8,8 +8,20 @@ public class Squat {
 	public SquatFrame first = null;
 	public SquatFrame last = null;
 	public SquatFrame middle = null;
-	public float timeToMiddleFrame;
-	public float timeToLastFrame;
+	private float totalBendTime;
+	private float totalStrechTime;
+
+	
+	public float getTotalBendTime() {
+		return totalBendTime;
+	}
+
+
+	public float getTotalStrechTime() {
+		return totalStrechTime;
+	}
+
+
 
 	public Squat(ArrayList<SquatFrame> squat) {
 		this.squat = squat;
@@ -17,8 +29,8 @@ public class Squat {
 		findLastFrame();// NOTICE: these funcs should run after findFirstFrame()
 						// deletes all the initial irrelevant frames
 		findMiddleFrame();
-		timeToMiddleFrame = (1 / FRAMES_IN_SECOND) * this.squat.indexOf(middle);
-		timeToLastFrame = (1 / FRAMES_IN_SECOND) * this.squat.indexOf(last);
+		totalBendTime = (1 / FRAMES_IN_SECOND) * this.squat.indexOf(middle);
+		totalStrechTime = (1 / FRAMES_IN_SECOND) * this.squat.indexOf(last);
 	}
 
 	/*

@@ -46,7 +46,7 @@ public class Squat {
 		
 		//TODO Ilan: make this a 30-Squat long array list of instances
 		//Starting from begining of strech->end of strech
-		return null;
+		return squat;
 	}
 	/*
 	 * we look for the first instance of frame in which the angel of the back is

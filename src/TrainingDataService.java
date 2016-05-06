@@ -28,7 +28,7 @@ public class TrainingDataService {
 			double[] values = getSquatValues(s);
 			trainingData.add(new Instance(1, values));
 		}
-		
+		trainingData.setClassIndex(trainingData.numAttributes() - 1);
 		return trainingData;
 	}
 
@@ -39,7 +39,7 @@ public class TrainingDataService {
 		values[2] = i_squatToParse.getTotalStrechTime();
 		
 		ArrayList<SquatFrame> squatFrameList = i_squatToParse.getSquatInfo();
-		for(int i = 0; i < NUM_OF_SAMPLES; i += 2)
+		for(int i = 0; i < 28; i += 2)
 		{
 			values[i + 3] = squatFrameList.get(i).getKneeBendAngle();
 			values[i + 4] = squatFrameList.get(i).getBackAngle();

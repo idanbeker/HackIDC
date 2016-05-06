@@ -1,7 +1,5 @@
-import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 
 public class Squat {
 	public static final double INITIAL__FRAME_BACK_ANGLE = 170;
@@ -42,7 +40,16 @@ public class Squat {
 		// totalBendTime = (1 / FRAMES_IN_SECOND) * this.squat.indexOf(middle);
 		// totalStrechTime = (1 / FRAMES_IN_SECOND) * this.squat.indexOf(last);
 	}
-	
+
+	private boolean isGoodSquat;
+
+	public boolean isGoodSquat() {
+		return isGoodSquat;
+	}
+
+	public void setGoodSquat(boolean isGoodSquat) {
+		this.isGoodSquat = isGoodSquat;
+	}
 	
 	public void findFirstFrame() {
 		for (SquatFrame frame : squat) {

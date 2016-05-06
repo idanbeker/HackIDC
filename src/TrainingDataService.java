@@ -10,6 +10,7 @@ import weka.core.Instances;
 
 public class TrainingDataService {
 	private static final int NUM_OF_ATTRIBUTES = 34;
+	private static final int NUM_OF_SAMPLES = 30;
 	ArrayList<Squat> m_squatList;
 
 	public TrainingDataService(ArrayList<Squat> i_squatList) {
@@ -38,10 +39,10 @@ public class TrainingDataService {
 		values[2] = i_squatToParse.getTotalStrechTime();
 		
 		ArrayList<SquatFrame> squatFrameList = i_squatToParse.getSquatInfo();
-		for(int i = 0; i < 30; i += 2)
+		for(int i = 0; i < NUM_OF_SAMPLES; i += 2)
 		{
-			values[i] = squatFrameList.get(i).getKneeBendAngle();
-			values[i + 1] = squatFrameList.get(i).getBackAngle();
+			values[i + 3] = squatFrameList.get(i).getKneeBendAngle();
+			values[i + 4] = squatFrameList.get(i).getBackAngle();
 		}
 		values[NUM_OF_ATTRIBUTES - 1] = i_squatToParse.isGoodSquat()? 1.0: 0.0;
 		

@@ -4,10 +4,6 @@ public class Main {
     public static void main(String[] args) {
 
 
-		/*
-		 * a good position: shoulder : 517,826 ass: 126 ,1061 foot: 593, 1001 a
-		 * bad position: shoulder: 458,594 ass: 186,906 foot: 587, 1100
-		 */
         Point[] goodBodyParam = new Point[5];
         goodBodyParam[0] = new Point(504, 652);//Head
         goodBodyParam[1] = new Point(517, 826);//Shoulder

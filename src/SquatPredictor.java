@@ -21,7 +21,9 @@ public class SquatPredictor {
 	}
 	
 	public boolean predict(Squat i_squat) throws Exception{
-		return m_classifier.classifyInstance(squatToInstance(i_squat)) == 1;
+		Instance instance = squatToInstance(i_squat);
+		System.out.println("Test" + instance);
+		return m_classifier.classifyInstance(instance) == 1;
 	}
 	
 	private Instance squatToInstance(Squat i_squat)

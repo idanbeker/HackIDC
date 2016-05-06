@@ -38,6 +38,9 @@ public class Main {
         for (int i = 21; i < squatsArray.length; i++) {
 
         }
+        
+        TrainingDataService trainingDataService = new TrainingDataService(null);
+        trainingDataService.getTrainingData();
 
     }
 }

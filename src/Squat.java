@@ -8,31 +8,28 @@ public class Squat {
 	public static final int FRAMES_IN_SQUAT = 30;
 	public static final int INDEX_OF_MIDDLE = 13;
 
-	public ArrayList<SquatFrame> squat = new ArrayList<SquatFrame>();
-	public ArrayList<SquatFrame> shortenSquat = null;
-	public SquatFrame first = null;
-	public SquatFrame last = null;
-	public SquatFrame middle = null;
+	private ArrayList<SquatFrame> m_initialSquat;
+	private ArrayList<SquatFrame> m_squatGestures;
+	private SquatFrame m_firstSquatFrame;
+	private SquatFrame m_lastSquatFrame;
+	private SquatFrame m_middleSquatFrame;
 
-	private double totalBendTime;
-	private double totalStrechTime;
-	private double[] stamps;
-	public structForSort[] struct;
-	public structForSort[] shortenStruct;
+	private double m_totalBendTime;
+	private double m_totalStrechTime;
 
-	public static boolean sortBy = true;
-
+	// private double[] stamps;
+	// public structForSort[] struct;
+	// public structForSort[] shortenStruct;
+	// public static boolean sortBy = true;
 	// true -sort by delta
 	// false- sort by index
 
-	
-	public Squat(ArrayList<SquatFrame> squat) {
-		this.squat = squat;
-		shortenSquat=new ArrayList<SquatFrame>();
+	public Squat(ArrayList<SquatFrame> i_squatFramesList) {
+		this.m_initialSquat = i_squatFramesList;
+		m_squatGestures = new ArrayList<SquatFrame>();
 		findFirstFrame(); // NOTICE: start working with squat after deleting
 							// fisrt elments!!
-		
-		
+
 		deleteToFirst();
 		findLastFrame();// NOTICE: these funcs should run after findFirstFrame()
 						// deletes all the initial irrelevant frames
@@ -50,28 +47,29 @@ public class Squat {
 	public void setGoodSquat(boolean isGoodSquat) {
 		this.isGoodSquat = isGoodSquat;
 	}
-	
+
 	public void findFirstFrame() {
-		for (SquatFrame frame : squat) {
+		m_firstSquatFrame = m_initialSquat.get(0);
+		for (SquatFrame frame : m_initialSquat) {
 			if (frame.getBackAngle() < INITIAL__FRAME_BACK_ANGLE) {
-				this.first = frame;
-				break;
+				this.m_firstSquatFrame = frame;
+				return;
 			}
 		}
 	}
 
 	public void deleteToFirst() {
-		int indexOfFirst = squat.indexOf(first);
+		int indexOfFirst = m_initialSquat.indexOf(m_firstSquatFrame);
 		for (int i = 0; i < indexOfFirst; i++) {
-
-			squat.remove(0);
+			m_initialSquat.remove(0);
 		}
 	}
 
 	public void findLastFrame() {
-		for (SquatFrame frame : squat) {
+		m_lastSquatFrame = m_initialSquat.get(m_initialSquat.size() - 1);
+		for (SquatFrame frame : m_initialSquat) {
 			if (frame.getBackAngle() > LAST__FRAME_BACK_ANGLE) {
-				this.last = frame;
+				this.m_lastSquatFrame = frame;
 				break;
 			}
 		}
@@ -80,30 +78,36 @@ public class Squat {
 	public void findMiddleFrame() {
 		// assume the angle is decreasing until the middle frame.
 		// find the first frame from which the angle doesnt decrease
-		for (SquatFrame frame : squat) {
-			if (squat.indexOf(frame) == squat.size() - 1)
-				break;
-			else if (frame.getKneeBendAngle() > squat.get(
-					squat.indexOf(frame) + 1).getKneeBendAngle()) {
-				middle = frame;
-				break;
+		int middleIndex = ((m_initialSquat.indexOf(m_lastSquatFrame) - m_initialSquat
+				.indexOf(m_firstSquatFrame)) / 2)
+				+ m_initialSquat.indexOf(m_firstSquatFrame);
+		for (SquatFrame frame : m_initialSquat) {
+			if (m_initialSquat.indexOf(frame) == m_initialSquat.size() - 1)
+			{
+				return;
+			}
+			else if (frame.getKneeBendAngle() > m_initialSquat.get(
+					m_initialSquat.indexOf(frame) + 1).getKneeBendAngle()) {
+				m_middleSquatFrame = frame;
+				return;
 			}
 		}
 	}
-	
-	
+
 	public double getTotalBendTime() {
-		return squat.indexOf(middle) - squat.indexOf(first);
+		return m_initialSquat.indexOf(m_middleSquatFrame)
+				- m_initialSquat.indexOf(m_firstSquatFrame);
 	}
 
 	public double getTotalStrechTime() {
-		return squat.indexOf(last) - squat.indexOf(middle);
+		return m_initialSquat.indexOf(m_lastSquatFrame)
+				- m_initialSquat.indexOf(m_middleSquatFrame);
 	}
-	
-	public ArrayList<SquatFrame> getSquatInfo(){
-		for (int i=0; i< FRAMES_IN_SQUAT;i++){
-			shortenSquat.add(squat.get(i));
+
+	public ArrayList<SquatFrame> getSquatInfo() {
+		for (int i = 0; i < FRAMES_IN_SQUAT; i++) {
+			m_squatGestures.add(m_initialSquat.get(i));
 		}
-		return shortenSquat;
+		return m_squatGestures;
 	}
 }

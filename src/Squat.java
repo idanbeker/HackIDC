@@ -1,19 +1,24 @@
 import java.util.ArrayList;
 
 public class Squat {
-	private static final double INITIAL__FRAME_BACK_ANGLE = 170;
-	private static final double LAST__FRAME_BACK_ANGLE = 170;
-	private ArrayList<SquatFrame> squat = new ArrayList<SquatFrame>();
-	private SquatFrame first = null;
-	private SquatFrame last = null;
-	private SquatFrame middle = null;
+	public static final float INITIAL__FRAME_BACK_ANGLE = 170;
+	public static final float LAST__FRAME_BACK_ANGLE = 170;
+	public static final int FRAMES_IN_SECOND = 24;
+	public ArrayList<SquatFrame> squat = new ArrayList<SquatFrame>();
+	public SquatFrame first = null;
+	public SquatFrame last = null;
+	public SquatFrame middle = null;
+	public float timeToMiddleFrame;
+	public float timeToLastFrame;
 
 	public Squat(ArrayList<SquatFrame> squat) {
 		this.squat = squat;
 		findFirstFrame();
-		findLastFrame();
+		findLastFrame();// NOTICE: these funcs should run after findFirstFrame()
+						// deletes all the initial irrelevant frames
 		findMiddleFrame();
-		
+		timeToMiddleFrame = (1 / FRAMES_IN_SECOND) * this.squat.indexOf(middle);
+		timeToLastFrame = (1 / FRAMES_IN_SECOND) * this.squat.indexOf(last);
 	}
 
 	/*
@@ -47,13 +52,14 @@ public class Squat {
 		// assume the angle is decreasing until the middle frame.
 		// find the first frame from which the angle doesnt decrease
 		for (SquatFrame frame : squat) {
-			if (squat.get(squat.indexOf(frame) + 1) != null
-					&& (frame.getKneeBendAngle() > squat.get(
-							squat.indexOf(frame) + 1).getKneeBendAngle())) {
+			if (squat.get(squat.indexOf(frame) + 1) == null)
+				break;
+			else if	(frame.getKneeBendAngle() > squat.get(
+							squat.indexOf(frame) + 1).getKneeBendAngle()) {
 				middle=frame;
+				break;
 
 			}
 		}
 	}
-
 }

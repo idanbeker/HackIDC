@@ -27,12 +27,23 @@ public class TrainingDataService {
 			double[] values = getSquatValues(s);
 			trainingData.add(new Instance(1, values));
 		}
-		return null;
+		
+		return trainingData;
 	}
 
 	private double[] getSquatValues(Squat i_squatToParse) {
 		double[] values = new double[NUM_OF_ATTRIBUTES];
 		values[0] = i_squatToParse.getTotalBendTime() + i_squatToParse.getTotalStrechTime();
+		values[1] = i_squatToParse.getTotalBendTime();
+		values[2] = i_squatToParse.getTotalStrechTime();
+		
+		ArrayList<SquatFrame> squatFrameList = i_squatToParse.getSquatInfo();
+		for(int i = 0; i < 30; i += 2)
+		{
+			values[i] = squatFrameList.get(i).getKneeBendAngle();
+			values[i + 1] = squatFrameList.get(i).getBackAngle();
+		}
+		values[NUM_OF_ATTRIBUTES - 1] = i_squatToParse.isGoodSquat()? 1.0: 0.0;
 		
 		return values;
 	}

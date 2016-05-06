@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 public class Squat {
+	
 	public static final float INITIAL__FRAME_BACK_ANGLE = 170;
 	public static final float LAST__FRAME_BACK_ANGLE = 170;
 	public static final int FRAMES_IN_SECOND = 24;
@@ -10,8 +11,20 @@ public class Squat {
 	public SquatFrame middle = null;
 	private float totalBendTime;
 	private float totalStrechTime;
+	private boolean isGoodSquat;
 
 	
+	
+	public boolean isGoodSquat() {
+		return isGoodSquat;
+	}
+
+
+	public void setGoodSquat(boolean isGoodSquat) {
+		this.isGoodSquat = isGoodSquat;
+	}
+
+
 	public float getTotalBendTime() {
 		return totalBendTime;
 	}
@@ -32,9 +45,10 @@ public class Squat {
 		findMiddleFrame();
 		totalBendTime = (1 / FRAMES_IN_SECOND) * this.squat.indexOf(middle);
 		totalStrechTime = (1 / FRAMES_IN_SECOND) * this.squat.indexOf(last);
+		isGoodSquat = false;
 	}
 
-	public ArrayList<Squat> getSquatInfo()
+	public ArrayList<SquatFrame> getSquatInfo()
 	{
 		
 		//TODO Ilan: make this a 30-Squat long array list of instances

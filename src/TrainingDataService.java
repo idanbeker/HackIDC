@@ -21,7 +21,7 @@ public class TrainingDataService {
 	{
 		FastVector squatAttributes = getAttributesVector();
 		Instances trainingData = new Instances("SquatDataSet",squatAttributes ,100 );
-		System.out.println(trainingData);
+		//sSystem.out.println(trainingData);
 		
 		for(Squat s : m_squatList)
 		{
@@ -44,7 +44,7 @@ public class TrainingDataService {
 			values[i + 3] = squatFrameList.get(i).getKneeBendAngle();
 			values[i + 4] = squatFrameList.get(i).getBackAngle();
 		}
-		values[NUM_OF_ATTRIBUTES - 1] = i_squatToParse.isGoodSquat()? 1.0: 0.0;
+		values[NUM_OF_ATTRIBUTES - 1] = i_squatToParse.isGoodSquat()? 0.0: 1.0;
 		
 		return values;
 	}

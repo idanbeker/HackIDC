@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) throws FileNotFoundException {
 
     	
-        InputParser ip = new InputParser("input/input.txt");
+        InputParser ip = new InputParser("input/input1.txt");
 
         ArrayList<SquatFrame> squatFrames = new ArrayList<SquatFrame>();
         ArrayList<Point> points = ip.points;

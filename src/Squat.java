@@ -122,7 +122,7 @@ public class Squat {
                 }
             }
             if (!foundError) {
-                m_lastSquatFrame = frame;
+                m_lastSquatFrame = m_initialSquat.get(m_initialSquat.indexOf(frame) + sequenceLength + 1);
             }
         }
 	}

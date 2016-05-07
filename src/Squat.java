@@ -81,7 +81,8 @@ public class Squat {
 		int c = 0;
 		for (SquatFrame frame : m_initialSquat) {
 			c++;
-			//System.out.println(c + ". " + frame.getBackAngle() + " " + frame.getKneeBendAngle());
+			// System.out.println(c + ". " + frame.getBackAngle() + " " +
+			// frame.getKneeBendAngle());
 		}
 	}
 
@@ -170,8 +171,20 @@ public class Squat {
 	}
 
 	public ArrayList<SquatFrame> getSquatInfo() {
-		for (int i = 0; i < Math.min(FRAMES_IN_SQUAT, m_initialSquat.size()); i++) {
-			m_squatGestures.add(m_initialSquat.get(i));
+		double firstToMidInterval = (m_middleSquatIndex - m_firstSquatIndex) / 14.0;
+		double indexOfInitial = m_firstSquatIndex;
+		for (int i = 0; i < 14; i++) {
+			
+			m_squatGestures.add(m_initialSquat.get((int)indexOfInitial));
+			indexOfInitial += firstToMidInterval;
+		}
+		m_squatGestures.add(m_initialSquat.get(m_middleSquatIndex));
+		double midToEndInterval = (m_lastSquatIndex - m_middleSquatIndex) / 15.0;
+		indexOfInitial = m_middleSquatIndex + midToEndInterval;
+		for(int i = 0; i < 15; i++)
+		{
+			m_squatGestures.add(m_initialSquat.get(Math.min((int)indexOfInitial,m_initialSquat.size() - 1)));
+			indexOfInitial += midToEndInterval;
 		}
 		return m_squatGestures;
 	}

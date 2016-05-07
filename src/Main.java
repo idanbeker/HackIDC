@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import weka.core.Instances;
 
 public class Main {
-	private static final int NUM_OF_TRAINING_INSTANCES = 3;
+	private static final int NUM_OF_TRAINING_INSTANCES = 7;
 	private static final int NUM_OF_DATA_INSTANCES = 3;
-	private static final boolean isGoodSquat[] = {true ,true,false,false};
+	private static final boolean isGoodSquat[] = {true ,true,false,false,true,false,false,false,true};
 
 	public static void main(String[] args) throws Exception {
 

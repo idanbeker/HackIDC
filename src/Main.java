@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import weka.core.Instances;
 
 public class Main {
-	private static final int NUM_OF_TRAINING_INSTANCES = 7;
-	private static final int NUM_OF_DATA_INSTANCES = 3;
-	private static final boolean isGoodSquat[] = {true ,true,false,false,true,false,false,false,true};
+	private static final int NUM_OF_TRAINING_INSTANCES = 9;
+	private static final int NUM_OF_DATA_INSTANCES = 1;
+	private static final boolean isGoodSquat[] = {true ,true,false,false,true,false,false,false,true,false,true};
 
 	public static void main(String[] args) throws Exception {
 
@@ -20,9 +20,9 @@ public class Main {
 		
 		for(int i = 0; i < data.numInstances();i++)
 		{
-			System.out.println(data.instance(i));
-			System.out.println("Real value = " + data.instance(i).classValue());
-			System.out.println("Predicted value = " + sp.predict(data.instance(i)));
+			System.out.println(dataSquats.get(i));
+			System.out.println("Real value = " + (data.instance(i).classValue() == 0.0? "Good squat" : "Bad squat"));
+			System.out.println("Predicted value = " + (sp.predict(data.instance(i)) == 0? "Good squat" : "Bad squat"));
 		}
 
 

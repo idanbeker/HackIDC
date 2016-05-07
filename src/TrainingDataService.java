@@ -10,7 +10,6 @@ import weka.core.Instances;
 
 public class TrainingDataService {
 	private static final int NUM_OF_ATTRIBUTES = 34;
-	private static final int NUM_OF_SAMPLES = 30;
 	ArrayList<Squat> m_squatList;
 
 	public TrainingDataService(ArrayList<Squat> i_squatList) {

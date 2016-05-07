@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Squat {
 	public static final double INITIAL__FRAME_BACK_ANGLE = 170;
-	public static final double LAST__FRAME_BACK_ANGLE = 170;
+	public static final double LAST__FRAME_BACK_ANGLE = 180;
 	// public static final int FRAMES_IN_SECOND = 24;
 	public static final int FRAMES_IN_SQUAT = 30;
 	public static final int INDEX_OF_MIDDLE = 13;
@@ -36,7 +36,6 @@ public class Squat {
 	
 	public SquatFrame getM_lastSquatFrame() {
 		return m_lastSquatFrame;
-
 	}
 
 	public void setM_lastSquatFrame(SquatFrame m_lastSquatFrame) {
@@ -71,8 +70,10 @@ public class Squat {
 		// totalBendTime = (1 / FRAMES_IN_SECOND) * this.squat.indexOf(middle);
 		// totalStrechTime = (1 / FRAMES_IN_SECOND) * this.squat.indexOf(last);
 
+        int c = 0;
         for (SquatFrame frame : m_initialSquat){
-            System.out.println(frame.getBackAngle() + " " + frame.getKneeBendAngle());
+            c++;
+            System.out.println(c + ". " + frame.getBackAngle() + " " + frame.getKneeBendAngle());
         }
 	}
 
@@ -105,33 +106,54 @@ public class Squat {
 
 	public void findLastFrame() {
 		m_lastSquatFrame = m_initialSquat.get(m_initialSquat.size() - 1);
-		for (SquatFrame frame : m_initialSquat) {
-            System.out.println(frame.getBackAngle() + " " + (frame.getBackAngle() > LAST__FRAME_BACK_ANGLE));
-			if (frame.getBackAngle() > LAST__FRAME_BACK_ANGLE) {
-				this.m_lastSquatFrame = frame;
-				break;
-			}
-		}
+        int sequenceLength = 6;
+        for (SquatFrame frame : m_initialSquat) {
+            if (m_initialSquat.indexOf(frame) > m_initialSquat.size() - sequenceLength - 1) {
+                return;
+            }
+            boolean foundError = false;
+            for (int i = 0; i < sequenceLength; i++) {
+                if (foundError) {
+                    continue;
+                }
+                if (m_initialSquat.get(m_initialSquat.indexOf(frame) + i).getBackAngle() > m_initialSquat.get(
+                        m_initialSquat.indexOf(frame) + i + 1).getBackAngle()) {
+                    foundError = true;
+                }
+            }
+            if (!foundError) {
+                m_lastSquatFrame = frame;
+            }
+        }
 	}
 
 	public void findMiddleFrame() {
 		// assume the angle is decreasing until the middle frame.
 		// find the first frame from which the angle doesnt decrease
 		int middleIndex = ((m_initialSquat.indexOf(m_lastSquatFrame) - m_initialSquat
-				.indexOf(m_firstSquatFrame)) / 2)
-				+ m_initialSquat.indexOf(m_firstSquatFrame);
+                .indexOf(m_firstSquatFrame)) / 2)
+                + m_initialSquat.indexOf(m_firstSquatFrame);
 		m_middleSquatFrame = m_initialSquat.get(middleIndex);
+        int sequenceLength = 3;
 		for (SquatFrame frame : m_initialSquat) {
-			if (m_initialSquat.indexOf(frame) == m_initialSquat.size() - 1)
-			{
-				return;
-			}
-			else if (frame.getKneeBendAngle() > m_initialSquat.get(
-					m_initialSquat.indexOf(frame) + 1).getKneeBendAngle()) {
-				m_middleSquatFrame = frame;
-				return;
-			}
-		}
+            if (m_initialSquat.indexOf(frame) > m_initialSquat.size() - sequenceLength - 1) {
+                return;
+            }
+            boolean foundError = false;
+            for (int i = 0; i < sequenceLength; i++) {
+                if (foundError) {
+                    continue;
+                }
+                if (m_initialSquat.get(m_initialSquat.indexOf(frame) + i).getBackAngle() > m_initialSquat.get(
+                        m_initialSquat.indexOf(frame) + i + 1).getBackAngle()) {
+                    foundError = true;
+                }
+            }
+            if (!foundError) {
+                m_middleSquatFrame = frame;
+                break;
+            }
+        }
 	}
 
 	public double getTotalBendTime() {
@@ -148,7 +170,6 @@ public class Squat {
 		for (int i = 0; i < Math.min(FRAMES_IN_SQUAT,m_initialSquat.size()); i++) {
 			m_squatGestures.add(m_initialSquat.get(i));
 		}
-		System.out.println(m_squatGestures);
 		return m_squatGestures;
 	}
 }

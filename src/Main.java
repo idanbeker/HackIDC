@@ -15,7 +15,6 @@ public class Main {
 
         Squat s = new Squat(squatFrames);
 
-
         System.out.println(s.getFirstSquatIndex());
         System.out.print(s.getM_firstSquatFrame());
 

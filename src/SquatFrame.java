@@ -23,7 +23,7 @@ public class SquatFrame {
         if (angle < 0){
             angle += 360;
         }
-		return angle;
+		return angle ;
 
 	}
 
@@ -36,7 +36,7 @@ public class SquatFrame {
         if (angle < 0){
             angle += 360;
         }
-		return angle;
+		return angle ;
 	}
 
 

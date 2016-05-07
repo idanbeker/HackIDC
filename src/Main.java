@@ -1,32 +1,39 @@
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+import weka.core.Instances;
+
 public class Main {
 	private static final int NUM_OF_TRAINING_INSTANCES = 1;
-	
-    public static void main(String[] args) throws FileNotFoundException {
 
-    	
-        InputParser ip = new InputParser("input/input1.txt");
+	public static void main(String[] args) throws FileNotFoundException {
 
-        ArrayList<SquatFrame> squatFrames = new ArrayList<SquatFrame>();
-        ArrayList<Point> points = ip.points;
-        for (int i = 0; i < points.size(); i += 4) {
-        	SquatFrame sf = new SquatFrame(points.get(i), points.get(i+1), points.get(i+2), points.get(i+3));
-            squatFrames.add(sf);
-            System.out.println(sf);
-            System.out.println(sf);
-        }
+		ArrayList<Squat> trainingSquats = getTrainingSquats();
+		TrainingDataService tds = new TrainingDataService(trainingSquats);
+		Instances data = tds.getTrainingData();
+		System.out.println(data);
+		for(Squat s: trainingSquats)
+		{
+			System.out.println(s);
+		}
 
-        Squat s = new Squat(squatFrames);
 
-        System.out.println(s.getFirstSquatIndex());
-        System.out.print(s.getM_firstSquatFrame());
 
-        System.out.println(s.getMiddleSquatIndex());
-        System.out.print(s.getM_middleSquatFrame());
+		
+	}
 
-        System.out.println(s.getLastSquatIndex());
-        System.out.print(s.getM_lastSquatFrame());
-    }
+	private static ArrayList<Squat> getTrainingSquats() throws FileNotFoundException {
+		ArrayList<Squat> trainingSquats = new ArrayList<Squat>();
+		for (int j = 1; j <= NUM_OF_TRAINING_INSTANCES; j++) {
+			InputParser ip = new InputParser("input/input" + j + ".txt");
+			ArrayList<SquatFrame> squatFrames = new ArrayList<SquatFrame>();
+			ArrayList<Point> points = ip.points;
+			for (int i = 0; i < points.size(); i += 4) {
+				SquatFrame sf = new SquatFrame(points.get(i), points.get(i + 1), points.get(i + 2), points.get(i + 3));
+				squatFrames.add(sf);
+			}
+			trainingSquats.add(new Squat(squatFrames));
+		}
+		return trainingSquats;
+	}
 }

@@ -39,7 +39,7 @@ public class TrainingDataService {
 		values[2] = i_squatToParse.getTotalStrechTime();
 		
 		ArrayList<SquatFrame> squatFrameList = i_squatToParse.getSquatInfo();
-		for(int i = 0; i < Math.min(28,squatFrameList.size()); i += 2)
+		for(int i = 0; i < Math.min(30,squatFrameList.size()); i += 2)
 		{
 			values[i + 3] = squatFrameList.get(i).getKneeBendAngle();
 			values[i + 4] = squatFrameList.get(i).getBackAngle();
